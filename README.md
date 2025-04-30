@@ -1,1 +1,1 @@
-# adjective-hypernymy
+## adjective-hypernymy
