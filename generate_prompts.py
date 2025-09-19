@@ -3,7 +3,7 @@ import os
 
 # === Configurazione ===
 input_csv = "./data/adjectives_def.csv"   # il tuo file di input
-output_dir = "prompts2.0"        # cartella di output
+output_dir = "prompts"        # cartella di output
 
 # Crea la cartella di output se non esiste
 os.makedirs(output_dir, exist_ok=True)
