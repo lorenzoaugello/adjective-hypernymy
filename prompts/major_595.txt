@@ -1,4 +1,4 @@
-Given the hyponym adjective "monstrous" with definition "abnormally large", generate a list of related adjective hypernyms. Only a list of adjective hypernyms must be in the output, nothing else more. Do not re-generate the input hyponym. Respect the following guidelines:
+Given the hyponym adjective "major" with definition "of full legal age", generate a list of related adjective hypernyms. Only a list of adjective hypernyms must be in the output, nothing else more. Do not re-generate the input hyponym. Respect the following guidelines:
 
     - The hyponym and the hypernym must be different.
     - Adjectives that are in the same synset need to have the same hypernym. There are many adjectives that are very similar (e.g., 'Eurasian', 'Eurasiatic', oewn-03035646-a, relating to, or coming from, Europe and Asia) and should have the same hypernym.
