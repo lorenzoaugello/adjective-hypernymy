@@ -32,10 +32,10 @@ def setup_api():
     """Initialize the Google AI Studio API."""
     # Option 1: Set API key directly in script (less secure)
     # Uncomment the line below and replace with your actual API key
-    api_key = "AIzaSyAiDnDMN6rTR4RnTvESTkgdg2wR0sSuSqk"
+    # api_key = ""
 
     # Option 2: Get API key from environment variable (recommended)
-    #api_key = os.getenv('GOOGLE_AI_STUDIO_API_KEY')
+    api_key = os.getenv('GOOGLE_AI_STUDIO_API_KEY')
 
     if not api_key:
         print("Error: GOOGLE_AI_STUDIO_API_KEY environment variable not set")
