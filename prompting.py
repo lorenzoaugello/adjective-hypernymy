@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Google AI Studio model prompting script for adjective hypernymy research.
-Uses Google's Gemini models via API instead of local models.
+...
+
 """
 
 import os
@@ -11,30 +11,25 @@ import google.generativeai as genai
 from datetime import datetime
 
 # === Configuration ===
-# Available models:
-# - "gemini-1.5-flash" (fast, efficient)
-# - "gemini-1.5-pro" (high quality, slower)
-# - "gemini-1.0-pro" (standard quality)
 
-MODEL_NAME = "gemini-1.5-flash"
-INPUT_DIR = "prompts"
-OUTPUT_DIR = "outputs_2.0"
+MODEL_NAME = "model_name"
+INPUT_DIR = "prompts_directory"
+OUTPUT_DIR = "output_directory"
 
 # Generation parameters
 MAX_OUTPUT_TOKENS = 2048
 TEMPERATURE = 0.7
 TOP_P = 0.9
 
-# Rate limiting (to avoid hitting API limits)
+# Rate limiting 
 REQUEST_DELAY = 1  # seconds between requests
 
 def setup_api():
     """Initialize the Google AI Studio API."""
-    # Option 1: Set API key directly in script (less secure)
-    # Uncomment the line below and replace with your actual API key
+    # Option 1: 
     # api_key = ""
 
-    # Option 2: Get API key from environment variable (recommended)
+    # Option 2: 
     api_key = os.getenv('GOOGLE_AI_STUDIO_API_KEY')
 
     if not api_key:

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-Google AI Studio clean response script for adjective hypernymy research.
-This version saves only the model responses without prompts or metadata.
+Script that saves only the model responses without prompts or metadata.
 """
 
 import os
@@ -11,9 +10,9 @@ import google.generativeai as genai
 from datetime import datetime
 
 # === Configuration ===
-MODEL_NAME = "gemini-1.5-flash"
-INPUT_DIR = "prompts_2.0"
-OUTPUT_DIR = "resp-only"
+MODEL_NAME = "model_name"
+INPUT_DIR = "prompts_directory"
+OUTPUT_DIR = "output_directory"
 
 # Generation parameters
 MAX_OUTPUT_TOKENS = 2048
@@ -23,10 +22,10 @@ REQUEST_DELAY = 1  # seconds between requests
 
 def setup_api():
     """Initialize the Google AI Studio API."""
-    # Option 1: Set API key directly in script
+    # Option 1: 
     # api_key = ""
 
-    # Option 2: Get from environment variable
+    # Option 2: 
     api_key = os.getenv('GOOGLE_AI_STUDIO_API_KEY')
 
     if not api_key:
