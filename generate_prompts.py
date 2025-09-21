@@ -1,17 +1,17 @@
 import pandas as pd
 import os
 
-# === Configurazione ===
-input_csv = "./data/adj_def_disambig.csv"   # il tuo file di input
-output_dir = "prompts_2.0"        # cartella di output
+# === Configuration ===
+input_csv = "./data/adj_def_disambig.csv"   # input file
+output_dir = "output_directory"        # output directory
 
-# Crea la cartella di output se non esiste
+# Create output directory if not already existing
 os.makedirs(output_dir, exist_ok=True)
 
-# Legge il CSV
+# Read CSV
 df = pd.read_csv(input_csv)
 
-# Cicla ogni riga e genera un file txt
+# Cycle each row and generate a txt file
 for idx, row in df.iterrows():
     hyponym = str(row["hyponym"]).strip()
     definition = str(row["definition"]).strip()
@@ -19,6 +19,7 @@ for idx, row in df.iterrows():
     prompt = f"""Given the hyponym adjective "{hyponym}" with definition "{definition}", generate a list of related adjective hypernyms. Only a list of adjective hypernyms must be in the output, nothing else more. Do not re-generate the input hyponym. Respect the following guidelines:
 
     - The hyponym and the hypernym must be different.
+    - The hyponym and the hypernym must not pertain to the same synset in the Open English WordNet.
     - Adjectives that are in the same synset need to have the same hypernym. There are many adjectives that are very similar (e.g., 'Eurasian', 'Eurasiatic', oewn-03035646-a, relating to, or coming from, Europe and Asia) and should have the same hypernym.
     - Principle of substitution: if you substitute the hyponym with the hypernym, the meaning of the phrase should not change much. There could necessarily be some loss of specificity, but the difference should only concern a broader meaning. Vice-versa, if you substitute the hypernym with the hyponym, there could be loss of meaning because the scope of the hyponym is littler that the hypernym one.
     - Inclusion of meaning principle: the meaning of the hyponym is narrower and should be included in the meaning of the hypernym, which is broader. Vice-versa, the meaning of the hypernym is not completely included in the hyponym one.
@@ -32,11 +33,11 @@ for idx, row in df.iterrows():
 
 """
 
-    # Nome file: hyponym.txt (pulito da caratteri strani)
+    # File name: hyponym.txt
     safe_filename = "".join(c if c.isalnum() or c in (" ", "_", "-") else "_" for c in hyponym)
     output_path = os.path.join(output_dir, f"{safe_filename}_{idx}.txt")
 
-    # Scrive il file
+    # ...
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(prompt)
 
